@@ -9,7 +9,7 @@ const Header = () => {
       {/* Logo */}
       <Link to='/' className='flex items-center'>
         <img src='/tcl.png' alt='EventEase Logo' className='h-16 mr-8' /> {/* Increased the logo size */}
-        <span className="text-black text-xl font-bold">Explore</span>
+        
       </Link>
 
       {/* Search Bar */}
@@ -44,6 +44,9 @@ const Header = () => {
           <div className="flex space-x-4">
             <Link to="/add-portfolio" className="border px-4 py-2 text-black rounded-full hover:bg-gray-100">
               Share Your Work
+            </Link>
+            <Link to="/explore" className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800">
+              Explore
             </Link>
             <UserButton />
           </div>

@@ -3,39 +3,33 @@ import { FaHeart, FaShareAlt } from 'react-icons/fa';
 
 const PortfolioCard = ({ mediaUrl, userName, userProfilePic }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 max-w-xs mx-auto hover:shadow-xl transition-shadow duration-300">
-      {/* Media Image */}
-      <img
-        src={mediaUrl}
-        alt="Portfolio"
-        className="h-48 w-full object-cover rounded-t-lg"
-        onError={(e) => {
-          console.error('Failed to load image:', e.target.src);
-          e.target.src = "https://via.placeholder.com/300"; // Fallback image
-        }}
-      />
+    <div className="bg-white shadow-lg rounded-lg w-full h-[400px] flex flex-col justify-between overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      {/* Media Section */}
+      <div className="relative w-full h-[60%]">
+        <img
+          src={mediaUrl}
+          alt="Portfolio"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       {/* User Info */}
-      <div className="flex items-center mt-4">
+      <div className="p-4 flex flex-col items-center">
         <img
-          src={userProfilePic || "https://via.placeholder.com/40"}
-          alt={userName || "User Profile"}
-          className="w-10 h-10 rounded-full mr-3"
-          onError={(e) => {
-            console.error('Failed to load user profile image:', e.target.src);
-            e.target.src = "https://via.placeholder.com/40"; // Fallback profile image
-          }}
+          src={userProfilePic}
+          alt={userName}
+          className="w-12 h-12 rounded-full border-2 border-gray-300 mb-3"
         />
-        <span className="font-semibold text-gray-800">{userName || "Unknown User"}</span>
+        <span className="font-semibold text-gray-800 text-lg">{userName}</span>
       </div>
 
       {/* Action Buttons */}
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center px-4 pb-4">
         <button className="flex items-center text-red-500 hover:text-red-700">
-          <FaHeart className="mr-1" /> Like
+          <FaHeart className="text-xl" />
         </button>
         <button className="flex items-center text-blue-500 hover:text-blue-700">
-          <FaShareAlt className="mr-1" /> Share
+          <FaShareAlt className="text-xl" />
         </button>
       </div>
     </div>
