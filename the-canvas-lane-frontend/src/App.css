@@ -1,0 +1,19 @@
+/* Light Theme */
+.light {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+  
+  /* Dark Theme */
+  .dark {
+    --bg-color: #1a202c;
+    --text-color: #ffffff;
+  }
+  
+  /* Apply Variables */
+  .app-layout {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  

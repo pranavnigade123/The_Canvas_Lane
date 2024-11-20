@@ -12,10 +12,11 @@ import Trending from './pages/trending';
 import AboutUs from './pages/aboutus';
 import PortfolioListing from './pages/portfolio-listing';
 import { AuthProvider } from './context/authContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    element: <AppLayout />, // AppLayout is where you'll add the theme toggle button
     children: [
       {
         path: '/',
@@ -86,9 +87,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider> {/* Added ThemeProvider here */}
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 
