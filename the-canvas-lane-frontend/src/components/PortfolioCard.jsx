@@ -7,6 +7,7 @@ const PortfolioCard = ({
   userProfilePic,
   portfolioTitle,
   portfolioDescription,
+  pageContext = "explore", // Add a context prop with default value as "explore"
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -48,26 +49,28 @@ const PortfolioCard = ({
             <span className="text-gray-700 font-medium">{userName}</span>
           </div>
           {/* Action Buttons */}
-          <div className="flex space-x-4">
-            <button
-              className="text-pink-500 hover:text-pink-700 focus:outline-none"
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent modal from opening
-                console.log("Liked!");
-              }}
-            >
-              <FaHeart className="text-lg" />
-            </button>
-            <button
-              className="text-blue-500 hover:text-blue-700 focus:outline-none"
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent modal from opening
-                console.log("Shared!");
-              }}
-            >
-              <FaShareAlt className="text-lg" />
-            </button>
-          </div>
+          {pageContext === "explore" && (
+            <div className="flex space-x-4">
+              <button
+                className="text-pink-500 hover:text-pink-700 focus:outline-none"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent modal from opening
+                  console.log("Liked!");
+                }}
+              >
+                <FaHeart className="text-lg" />
+              </button>
+              <button
+                className="text-blue-500 hover:text-blue-700 focus:outline-none"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent modal from opening
+                  console.log("Shared!");
+                }}
+              >
+                <FaShareAlt className="text-lg" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
 

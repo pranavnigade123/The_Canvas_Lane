@@ -7,6 +7,7 @@ import Add_portfoliio from './pages/Add-portfoliio';
 import Portfolio from './pages/portfolio';
 import Saved_portfolio from './pages/saved-portfolio';
 import MyPortfolio from './pages/my-portfolio';
+import MyProfile from './pages/my-profile'; // Import the new MyProfile page
 import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react';
 import Trending from './pages/trending';
 import AboutUs from './pages/aboutus';
@@ -74,6 +75,19 @@ const router = createBrowserRouter([
           <>
             <SignedIn>
               <MyPortfolio />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        )
+      },
+      {
+        path: '/my-profile', // New route for MyProfile page
+        element: (
+          <>
+            <SignedIn>
+              <MyProfile />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />

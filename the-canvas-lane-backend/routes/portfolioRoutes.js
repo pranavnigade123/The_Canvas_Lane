@@ -113,17 +113,20 @@ router.get('/all', requireAuth(), async (req, res) => {
   }
 });
 
-
 // Route to get all portfolios for a specific user
-router.get('/user-portfolios', requireAuth(), async (req, res) => {
-  const userId = req.auth.userId;
+router.get("/user-portfolios", requireAuth(), async (req, res) => {
+  const clerkId = req.auth.userId; // Clerk ID of the authenticated user
 
   try {
-    const portfolios = await Portfolio.find({ 'creator.userId': userId });
+    // Fetch portfolios where the 'creator' field matches the Clerk ID
+    const portfolios = await Portfolio.find({ "creator": clerkId });
+    if (!portfolios || portfolios.length === 0) {
+      return res.status(404).json({ message: "No portfolios found for this user." });
+    }
     res.status(200).json(portfolios);
   } catch (error) {
-    console.error('Error retrieving portfolios:', error);
-    res.status(500).json({ message: 'Error retrieving portfolios' });
+    console.error("Error retrieving user portfolios:", error);
+    res.status(500).json({ message: "Error retrieving user portfolios" });
   }
 });
 

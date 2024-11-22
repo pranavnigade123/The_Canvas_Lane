@@ -18,7 +18,7 @@ const app = express();
 // Allowed origins for CORS
 const allowedOrigins = [
     'http://localhost:5173', // Frontend URL
-    'https://5be8-2401-4900-1c9b-2592-7063-5649-4b37-d6f4.ngrok-free.app', // Current Ngrok URL
+    'https://c684-2401-4900-560f-7752-508a-ccf6-a2c4-ad94.ngrok-free.app', // Current Ngrok URL
 ];
 
 app.use((req, res, next) => {
@@ -61,7 +61,7 @@ app.get('/protected', requireAuth({ signInUrl: '/sign-in' }), (req, res) => {
     console.log('[Protected Route] Accessed by user:', req.auth?.userId);
     return res.json({ message: 'You are signed in!', userId: req.auth?.userId });
 });
-
+app.use('/api', requireAuth(), portfolioRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // API Route with Auth Middleware Logs
 app.use('/api/portfolios', requireAuth(), (req, res, next) => {
@@ -70,6 +70,9 @@ app.use('/api/portfolios', requireAuth(), (req, res, next) => {
     console.log('Authenticated User:', req.auth?.userId);
     next();
 }, portfolioRoutes);
+
+//
+app.use('/api/users', userRoutes); // Add the route prefix here
 
 // Catch-all Route
 app.use((req, res, next) => {
