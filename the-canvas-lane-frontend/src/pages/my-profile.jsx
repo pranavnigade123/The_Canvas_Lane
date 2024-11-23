@@ -104,7 +104,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className={`max-w-6xl mx-auto px-4 py-8 ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}>
+    <div className={`max-w-6xl mx-auto px-4 py-8 ${theme === "dark" ? "bg-black-900" : "bg-white"}`}>
       <h1 className={`text-4xl font-bold mb-8 ${theme === "dark" ? "text-white" : "text-black"}`}>
         My Profile
       </h1>
@@ -125,7 +125,7 @@ const MyProfile = () => {
                 "https://via.placeholder.com/150/7D7D7D/FFFFFF?text=No+Image"
               }
               alt="Profile"
-              className="w-32 h-32 rounded-full border-4 border-blue-500 shadow-lg"
+              className="w-32 h-32 rounded-full border-4 shadow-lg"
               onError={(e) => {
                 e.target.src =
                   "https://via.placeholder.com/150/7D7D7D/FFFFFF?text=No+Image";

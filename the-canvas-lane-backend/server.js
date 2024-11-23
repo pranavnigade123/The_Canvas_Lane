@@ -18,7 +18,7 @@ const app = express();
 // Allowed origins for CORS
 const allowedOrigins = [
     'http://localhost:5173', // Frontend URL
-    'https://c684-2401-4900-560f-7752-508a-ccf6-a2c4-ad94.ngrok-free.app', // Current Ngrok URL
+    'https://4e31-2401-4900-7fb5-87f6-2986-ff40-c87b-cbea.ngrok-free.app', // Current Ngrok URL
 ];
 
 app.use((req, res, next) => {
